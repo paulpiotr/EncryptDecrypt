@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -8,7 +9,7 @@ namespace EncryptDecrypt
 {
     public class EncryptDecrypt
     {
-        //private static readonly log4net.ILog _log4net = Log4netLogger.Log4netLogger.GetLog4netInstance(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly log4net.ILog _log4net = Log4netLogger.Log4netLogger.GetLog4netInstance(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public static string EncryptString(string text, string salt)
         {
             try
@@ -44,6 +45,7 @@ namespace EncryptDecrypt
                 return null;
             }
         }
+
         public static string DecryptString(string text, string salt)
         {
             try
@@ -88,7 +90,7 @@ namespace EncryptDecrypt
                 {
                     directoryInfo = directoryInfo.Parent;
                 }
-                path = Path.Combine(null != directoryInfo ? directoryInfo.FullName : AppDomain.CurrentDomain.BaseDirectory, (null != file ? file : "public.rsa"));
+                path = Path.Combine(null != directoryInfo ? directoryInfo.FullName : AppDomain.CurrentDomain.BaseDirectory, (null != file ? file: "public.rsa"));
                 return path;
             }
             catch (Exception)
@@ -103,7 +105,7 @@ namespace EncryptDecrypt
             {
                 return File.ReadAllText(GetRsaFilePath());
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return null;
             }
