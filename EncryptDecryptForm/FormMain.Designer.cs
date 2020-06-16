@@ -1,4 +1,4 @@
-﻿namespace EnryptDecryptForm
+﻿namespace EncryptDecryptForm
 {
     partial class FormMain
     {

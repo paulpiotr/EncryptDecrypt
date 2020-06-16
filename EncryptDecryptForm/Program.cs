@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace EnryptDecryptForm
+namespace EncryptDecryptForm
 {
     internal static class Program
     {

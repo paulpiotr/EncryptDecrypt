@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EnryptDecryptForm.Properties
+namespace EncryptDecryptForm.Properties
 {
 
 
