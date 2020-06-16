@@ -22,7 +22,7 @@ namespace EncryptDecryptForm
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            richTextBoxKey.Text = EncryptDecrypt.EncryptDecrypt.GetRsaFileContent();
+            richTextBoxKey.Text = EncryptDecrypt.EncryptDecrypt.GetRsaFileContent() ?? string.Empty;
         }
     }
 }

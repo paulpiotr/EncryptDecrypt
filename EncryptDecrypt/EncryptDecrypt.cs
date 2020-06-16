@@ -8,7 +8,6 @@ namespace EncryptDecrypt
 {
     public class EncryptDecrypt
     {
-        private static readonly log4net.ILog _log4net = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public static string EncryptString(string text, string salt)
         {
             try
