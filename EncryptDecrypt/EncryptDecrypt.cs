@@ -1,13 +1,30 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 
+/// <summary>
+/// namespace EncryptDecrypt
+/// </summary>
 namespace EncryptDecrypt
 {
+    /// <summary>
+    /// public class EncryptDecrypt
+    /// </summary>
     public class EncryptDecrypt
     {
+        /// <summary>
+        /// private static readonly log4net.ILog _log4net = Log4netLogger.Log4netLogger.GetLog4netInstance(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        /// </summary>
+        //private static readonly log4net.ILog _log4net = Log4netLogger.Log4netLogger.GetLog4netInstance(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        /// <summary>
+        /// public static string EncryptString(string text, string salt)
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="salt"></param>
+        /// <returns></returns>
         public static string EncryptString(string text, string salt)
         {
             try
@@ -43,7 +60,12 @@ namespace EncryptDecrypt
                 return null;
             }
         }
-
+        /// <summary>
+        /// public static string DecryptString(string text, string salt)
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="salt"></param>
+        /// <returns></returns>
         public static string DecryptString(string text, string salt)
         {
             try
@@ -78,31 +100,40 @@ namespace EncryptDecrypt
                 return null;
             }
         }
-
+        /// <summary>
+        /// public static string GetRsaFilePath(string path = null, string file = null)
+        /// </summary>
+        /// <param name="path"></param>
+        /// <param name="file"></param>
+        /// <returns></returns>
         public static string GetRsaFilePath(string path = null, string file = null)
         {
             try
             {
                 DirectoryInfo directoryInfo = new DirectoryInfo(path ?? AppDomain.CurrentDomain.BaseDirectory);
-                while (directoryInfo != null && !directoryInfo.GetFiles(file ?? "public.rsa").Any())
+                while (null != directoryInfo && !directoryInfo.GetFiles((null != file ? file : "public.rsa")).Any())
                 {
                     directoryInfo = directoryInfo.Parent;
                 }
-                return Path.Combine(null != directoryInfo ? directoryInfo.FullName : AppDomain.CurrentDomain.BaseDirectory + "\\" + (file ?? "public.rsa"));
+                path = Path.Combine(null != directoryInfo ? directoryInfo.FullName : AppDomain.CurrentDomain.BaseDirectory, (null != file ? file : "public.rsa"));
+                return path;
             }
             catch (Exception)
             {
                 return null;
             }
         }
-
+        /// <summary>
+        /// public static string GetRsaFileContent()
+        /// </summary>
+        /// <returns></returns>
         public static string GetRsaFileContent()
         {
             try
             {
                 return File.ReadAllText(GetRsaFilePath());
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return null;
             }
