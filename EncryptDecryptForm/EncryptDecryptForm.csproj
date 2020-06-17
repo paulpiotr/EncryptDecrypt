@@ -125,9 +125,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="public.rsa">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <None Include="public.rsa" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
