@@ -131,8 +131,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EncryptDecrypt\EncryptDecrypt.csproj">
-      <Project>{945c59d5-6f4e-4354-8fcf-dadc5e5c79c4}</Project>
-      <Name>EnryptDecrypt</Name>
+      <Project>{C1B4B205-9F3A-4655-87DA-A39CD7CE86D5}</Project>
+      <Name>EncryptDecrypt</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
