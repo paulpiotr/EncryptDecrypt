@@ -349,5 +349,10 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
+*.ppk
+*.rsa
+*.log
+
+node_modules/
+Release/
 log4net.config
-public.rsa
