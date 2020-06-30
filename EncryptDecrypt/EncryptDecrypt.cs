@@ -132,7 +132,7 @@ namespace EncryptDecrypt
             {
                 return File.ReadAllText(GetRsaFilePath());
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return null;
             }
