@@ -102,7 +102,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="EncryptDecryptForm_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -131,7 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EncryptDecrypt\EncryptDecrypt.csproj">
-      <Project>{C1B4B205-9F3A-4655-87DA-A39CD7CE86D5}</Project>
+      <Project>{c1b4b205-9f3a-4655-87da-a39cd7ce86d5}</Project>
       <Name>EncryptDecrypt</Name>
     </ProjectReference>
   </ItemGroup>
