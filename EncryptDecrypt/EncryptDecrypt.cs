@@ -137,5 +137,22 @@ namespace EncryptDecrypt
                 return null;
             }
         }
+        
+        /// <summary>
+        /// Pobierz treść klucza z pliku według nazwy pliku
+        /// </summary>
+        /// <param name="file">Nazwa pliku AS string</param>
+        /// <returns>Treść klucza z pliku AS string</returns>
+        public static string GetRsaFileContent(string file)
+        {
+            try
+            {
+                return File.ReadAllText(GetRsaFilePath(null, file));
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }
