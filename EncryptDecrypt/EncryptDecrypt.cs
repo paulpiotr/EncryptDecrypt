@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 /// <summary>
 /// namespace EncryptDecrypt
@@ -18,6 +19,7 @@ namespace EncryptDecrypt
         /// private static readonly log4net.ILog _log4net = Log4netLogger.Log4netLogger.GetLog4netInstance(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// </summary>
         //private static readonly log4net.ILog _log4net = Log4netLogger.Log4netLogger.GetLog4netInstance(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         /// <summary>
         /// public static string EncryptString(string text, string salt)
         /// </summary>
@@ -59,6 +61,7 @@ namespace EncryptDecrypt
                 return null;
             }
         }
+
         /// <summary>
         /// public static string DecryptString(string text, string salt)
         /// </summary>
@@ -99,6 +102,7 @@ namespace EncryptDecrypt
                 return null;
             }
         }
+
         /// <summary>
         /// public static string GetRsaFilePath(string path = null, string file = null)
         /// </summary>
@@ -122,6 +126,7 @@ namespace EncryptDecrypt
                 return null;
             }
         }
+
         /// <summary>
         /// public static string GetRsaFileContent()
         /// </summary>
@@ -130,7 +135,7 @@ namespace EncryptDecrypt
         {
             try
             {
-                return File.ReadAllText(GetRsaFilePath());
+                return Regex.Replace(File.ReadAllText(GetRsaFilePath()), @"\s+|\r+|\n+|\r\n+", string.Empty);
             }
             catch (Exception)
             {
@@ -147,7 +152,7 @@ namespace EncryptDecrypt
         {
             try
             {
-                return File.ReadAllText(GetRsaFilePath(null, file));
+                return Regex.Replace(File.ReadAllText(GetRsaFilePath(null, file)), @"\s+|\r+|\n+|\r\n+", string.Empty);
             }
             catch (Exception)
             {
