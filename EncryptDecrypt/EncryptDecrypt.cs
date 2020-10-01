@@ -142,7 +142,7 @@ namespace EncryptDecrypt
                 return null;
             }
         }
-        
+
         /// <summary>
         /// Pobierz treść klucza z pliku według nazwy pliku
         /// </summary>
