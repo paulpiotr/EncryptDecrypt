@@ -16,9 +16,9 @@ namespace EncryptDecrypt
     public class EncryptDecrypt
     {
         /// <summary>
-        /// private static readonly log4net.ILog log4net = Log4netLogger.Log4netLogger.GetLog4netInstance(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        /// private readonly log4net.ILog log4net = Log4netLogger.Log4netLogger.GetLog4netInstance(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// </summary>
-        //private static readonly log4net.ILog log4net = Log4netLogger.Log4netLogger.GetLog4netInstance(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        //private readonly log4net.ILog log4net = Log4netLogger.Log4netLogger.GetLog4netInstance(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         /// <summary>
         /// public static string EncryptString(string text, string salt)
