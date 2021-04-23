@@ -1,3 +1,5 @@
+#region using
+
 using System;
 using System.IO;
 using System.Linq;
@@ -5,13 +7,15 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 
+#endregion
+
 /// <summary>
 /// namespace EncryptDecrypt
 /// </summary>
 namespace EncryptDecrypt
 {
     /// <summary>
-    /// public class EncryptDecrypt
+    ///     public class EncryptDecrypt
     /// </summary>
     public class EncryptDecrypt
     {
@@ -21,7 +25,7 @@ namespace EncryptDecrypt
         //private readonly log4net.ILog log4net = Log4netLogger.Log4netLogger.GetLog4netInstance(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
         /// <summary>
-        /// public static string EncryptString(string text, string salt)
+        ///     public static string EncryptString(string text, string salt)
         /// </summary>
         /// <param name="text"></param>
         /// <param name="salt"></param>
@@ -39,12 +43,14 @@ namespace EncryptDecrypt
                     {
                         using (var memoryStream = new MemoryStream())
                         {
-                            using (var cryptoStream = new CryptoStream(memoryStream, iCryptoTransform, CryptoStreamMode.Write))
+                            using (var cryptoStream =
+                                new CryptoStream(memoryStream, iCryptoTransform, CryptoStreamMode.Write))
                             {
                                 using (var streamWriter = new StreamWriter(cryptoStream))
                                 {
                                     streamWriter.Write(text);
                                 }
+
                                 var iv = aes.IV;
                                 var decryptedContent = memoryStream.ToArray();
                                 var result = new byte[iv.Length + decryptedContent.Length];
@@ -64,7 +70,7 @@ namespace EncryptDecrypt
         }
 
         /// <summary>
-        /// public static string DecryptString(string text, string salt)
+        ///     public static string DecryptString(string text, string salt)
         /// </summary>
         /// <param name="text"></param>
         /// <param name="salt"></param>
@@ -87,7 +93,8 @@ namespace EncryptDecrypt
                     {
                         using (var memoryStream = new MemoryStream(cipher))
                         {
-                            using (var cryptoStream = new CryptoStream(memoryStream, iCryptoTransform, CryptoStreamMode.Read))
+                            using (var cryptoStream =
+                                new CryptoStream(memoryStream, iCryptoTransform, CryptoStreamMode.Read))
                             {
                                 using (var streamReader = new StreamReader(cryptoStream))
                                 {
@@ -105,7 +112,7 @@ namespace EncryptDecrypt
         }
 
         /// <summary>
-        /// public static string GetRsaFilePath(string path = null, string file = null)
+        ///     public static string GetRsaFilePath(string path = null, string file = null)
         /// </summary>
         /// <param name="path"></param>
         /// <param name="file"></param>
@@ -119,7 +126,10 @@ namespace EncryptDecrypt
                 {
                     directoryInfo = directoryInfo.Parent;
                 }
-                path = Path.Combine(null != directoryInfo ? directoryInfo.FullName : AppDomain.CurrentDomain.BaseDirectory, file ?? "public.rsa");
+
+                path = Path.Combine(
+                    null != directoryInfo ? directoryInfo.FullName : AppDomain.CurrentDomain.BaseDirectory,
+                    file ?? "public.rsa");
                 return path;
             }
             catch (Exception)
@@ -129,7 +139,7 @@ namespace EncryptDecrypt
         }
 
         /// <summary>
-        /// public static string GetRsaFileContent()
+        ///     public static string GetRsaFileContent()
         /// </summary>
         /// <returns></returns>
         public static string GetRsaFileContent()
@@ -145,7 +155,7 @@ namespace EncryptDecrypt
         }
 
         /// <summary>
-        /// Pobierz treść klucza z pliku według nazwy pliku
+        ///     Pobierz treść klucza z pliku według nazwy pliku
         /// </summary>
         /// <param name="file">Nazwa pliku AS string</param>
         /// <returns>Treść klucza z pliku AS string</returns>
